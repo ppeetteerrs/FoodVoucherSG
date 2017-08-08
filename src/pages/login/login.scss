@@ -1,0 +1,25 @@
+page-login {
+  //background: url("../../assets/splash.png") no-repeat center fixed; 
+  //background-size: cover;
+  .content {
+    background: url("../assets/img/splash.png") no-repeat center fixed;
+    background-size: cover;
+    overflow: hidden !important;
+  }
+  ion-item {
+    background: transparent !important;
+    font-size: 20px !important;
+  }
+  ion-label {
+    color: white !important;
+    font-weight: 1000 !important;
+  }
+  ion-content {
+    text-align: center;
+  }
+  button {
+    border-width: 10 !important;
+    color: darkblue !important;
+    font-weight: 1000 !important;
+  }
+}

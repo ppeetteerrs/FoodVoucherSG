@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ViewTransactionHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Redemption History</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="all_transactions.length>0">
+    <ion-row>
+      <ion-col col-3>
+        <ion-item no-lines>
+          <ion-datetime class="year" displayFormat="YYYY" [yearValues]="years" placeholder="Year" [(ngModel)]="ui_dateTime.year" (ionChange)="parseValue('year')"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-item no-lines>
+          <ion-datetime class="month" displayFormat="MMM" placeholder="Month" [(ngModel)]="ui_dateTime.month" (ionChange)="parseValue('month')"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-item no-lines>
+          <ion-datetime class="day" *ngIf="!disableDay" displayFormat="D" [dayValues]="days"  placeholder="Day" [(ngModel)]="ui_dateTime.day" (ionChange)="parseValue('day')"></ion-datetime>
+          <ion-datetime *ngIf="disableDay" placeholder="Day" disabled=true></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button clear full (click)="updatedDate('clear')">Clear</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h1 *ngIf="filteredTransactions.length == 0 && all_transactions.length>0">Sorry, no redemption records are found for this time period.</h1>
+  <div *ngIf="filteredTransactions.length > 0 && all_transactions.length>0">
+    <div *ngFor="let group of filteredTransactions">
+      <h1 *ngIf="yearlyView">{{getFormattedDateMonth(group[0])}}</h1>
+      <h1 *ngIf="monthlyView">{{getFormattedDateDay(group[0])}}</h1>
+      <h1 *ngIf="dailyView">{{getFormattedDateHour(group[0])}}</h1>
+      <ion-card *ngFor="let transaction of group">
+        <ion-card-content>
+          <p>Name: {{transaction?.hawkerName}}</p>
+          <p>Charity: {{transaction?.charityName}}</p>
+          <p *ngIf="yearlyView">Date: {{getFormattedDateDay(transaction)}}</p>
+          <p *ngIf="monthlyView">Date: {{getFormattedDateHour(transaction)}}</p>
+          <p *ngIf="dailyView">Time: {{getFormattedDateMinutes(transaction)}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <h1 *ngIf="all_transactions.length == 0">Sorry, no redemption records are found for {{user.name}}.</h1>
+
+</ion-content>

@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ViewCardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Card {{card.barcode}}</ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="editCard()">
+        Edit
+      </button>
+      <button ion-button (click)="viewHistory()">
+        View History
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label inline>Charity: {{card.charityName}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Created By: {{card.creatorName}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Owner Name: {{card.ownerName}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Owner Location: {{card.ownerLocation}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Daily Quota: {{card.quotaPerDay}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Monthly Quota: {{card.quotaPerMonth}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Redeemed Today: {{card.redeemedToday}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Redeemed This Month: {{card.redeemedThisMonth}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>{{card.enabled ? "Enabled" : "Disabled"}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

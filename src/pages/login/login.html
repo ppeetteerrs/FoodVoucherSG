@@ -1,0 +1,23 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="content">
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <ion-list no-lines inset>
+
+    <ion-item>
+      <ion-label fixed>Email: </ion-label>
+      <ion-input [(ngModel)]="ui_user_auth.email" type="text" placeholder="Enter Your Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Password: </ion-label>
+      <ion-input [(ngModel)]="ui_user_auth.password" type="password" placeholder="Enter Your Password"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+  <button ion-button round (click)="login()" large>Log in</button>
+</ion-content>

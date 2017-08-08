@@ -3,28 +3,47 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { IonicStorageModule } from '@ionic/storage';
+import { Toast } from '@ionic-native/toast';
+import { Keyboard } from '@ionic-native/keyboard';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HttpModule } from '@angular/http';
+
+//PROVIDERS
+import { BarcodeGenerator } from '../providers/barcode-generator';
+import { Auth } from '../providers/auth';
+import { Database } from '../providers/database';
+import { SideMenu } from '../providers/sidemenu';
+import { ArraysProvider } from '../providers/arrays';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    BarcodeScanner,
+    Toast,
+    Keyboard,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeGenerator,
+    Auth,
+    SideMenu,
+    Database,
+    ArraysProvider
   ]
 })
 export class AppModule {}

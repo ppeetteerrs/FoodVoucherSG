@@ -1,0 +1,69 @@
+<!--
+  Generated template for the EditCardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Card</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngIf="!admin">
+      <ion-label inline>Charity: {{card.charityName}}</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="admin">
+      <ion-label floating>Charity Name</ion-label>
+      <ion-select [(ngModel)]="card.charityName" interface="popover" (ionChange)="onSelectChange($event)">
+        <ion-option *ngFor="let charity of charity_account_list">{{charity?.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Created By: {{card.creatorName}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Owner Name</ion-label>
+      <ion-input [(ngModel)]="card.ownerName" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Owner Location</ion-label>
+      <ion-input [(ngModel)]="card.ownerLocation" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Daily Quota</ion-label>
+      <ion-input [(ngModel)]="card.quotaPerDay" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Monthly Quota</ion-label>
+      <ion-input [(ngModel)]="card.quotaPerMonth" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Redeemed Today: {{card.redeemedToday}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label inline>Redeemed This Month: {{card.redeemedThisMonth}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Enable</ion-label>
+      <ion-toggle [(ngModel)]="card.enabled"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button round (click)="update()">Update</button>
+</ion-content>

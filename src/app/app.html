@@ -1,1 +1,30 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+
+  <ion-content>
+    <div class="head">
+      <img width="100" height="100" src="./assets/img/icon.png">
+      <hr size="50">
+
+    </div>
+    <ion-list>
+      <button menuClose *ngFor="let p of pages" (click)="openPage(p.page)" ion-item no-lines>
+        <ion-icon [name]="p.icon" item-start></ion-icon>
+        <b>{{p.name}}</b>
+        <div class="marker" item-end *ngIf="isCurrentPage(p)"></div>
+      </button>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer style="padding: 0 0 0 0;">
+    <ion-toolbar style="padding: 0 0 0 0; margin: 0 0 0 0;">
+      <button menuClose block clear position="bottom" width="100%" style="margin: 0 0 0 0;" ion-button (click)="logout()">
+          SIGN OUT
+          <ion-icon name="log-out" large></ion-icon>
+      </button>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

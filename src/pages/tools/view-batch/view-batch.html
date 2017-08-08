@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ViewBatchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>view-batch</ion-title>
+    <ion-buttons end>
+      <button ion-button disabled style="color: black; opacity: 1">
+      <ion-note item-start style="color: black">
+        Hide Unused Cards
+      </ion-note>
+      <ion-toggle color="primary" checked="true" [(ngModel)]="hideUnused" (ionChange)="onSelectionChange()"></ion-toggle>
+
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let card of filtered_cards">
+    <ion-item>
+      <h1><b>{{card.ownerName}} ({{card.ownerLocation}})</b></h1>
+      <button ion-button icon-only clear item-right (click)="view(card)">
+        <ion-icon name="eye"></ion-icon>
+      </button>
+      <button ion-button icon-only clear item-right (click)="edit(card)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <h2>Left Today: {{card.quotaPerDay - card.redeemedToday}}/{{card.quotaPerDay}}</h2>
+      <h2>Left This Month: {{card.quotaPerMonth - card.redeemedThisMonth}}/{{card.quotaPerMonth}}</h2>
+    </ion-item>
+  </ion-card>
+</ion-content>

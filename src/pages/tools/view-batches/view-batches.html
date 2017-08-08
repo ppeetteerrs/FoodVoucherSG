@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ViewBatchesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{user.name}}'s Batches</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let batch of filtered_batches">
+    <ion-item>
+      <h1><b>Batch ID: </b> {{batch?.id}}</h1>
+      <button ion-button icon-only clear item-right (click)="open(batch)">
+        <ion-icon name="open"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <h2>Sent To: {{batch.charityEmail}}</h2>
+      <h2>Amount: {{batch.amount}}</h2>
+    </ion-item>
+  </ion-card>
+  <h1 *ngIf="filtered_batches.length == 0">No Batches Received Yet :(</h1>
+</ion-content>

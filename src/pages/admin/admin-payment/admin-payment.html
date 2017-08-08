@@ -1,0 +1,42 @@
+<!--
+  Generated template for the AdminPaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list no-lines>
+    <ion-item *ngIf="hawkers.length > 0">
+      <ion-label floating>Hawker Name</ion-label>
+      <ion-select [(ngModel)]="hawker" interface="popover">
+        <ion-option *ngFor="let hawker of hawkers" (ionSelect)="onSelectChange(hawker)">{{hawker?.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="hawkers.length == 0">
+      <ion-label inline>{{hawker?.name}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Amount</ion-label>
+      <ion-input [(ngModel)]="amount" type="number"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <button ion-button color="secondary" outline (click)="createPayment()">Request Approval</button>
+</ion-content>

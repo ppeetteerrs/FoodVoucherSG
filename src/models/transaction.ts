@@ -1,0 +1,24 @@
+export interface TransactionOut {
+    hawkerID: string;
+    hawkerName: string;
+    cardID: string;
+    cardBarcode: number;
+    charityID: string;
+    charityName: string;
+    ownerName: string;
+    ownerLocation: string;
+    date?: Date
+}
+
+export interface TransactionIn {
+    id?: string;
+    hawkerID: string;
+    hawkerName: string;
+    cardID: string;
+    cardBarcode: number;
+    charityID: string;
+    charityName: string;
+    ownerName: string;
+    ownerLocation: string;
+    date: Date
+}

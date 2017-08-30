@@ -23,8 +23,8 @@
     
     <ion-item *ngIf="charity_account_list.length > 0">
       <ion-label floating>Charity Name</ion-label>
-      <ion-select [disabled]="disabled" [(ngModel)]="charityName" interface="popover" (ionSelect)="onSelectChange($event)">
-        <ion-option *ngFor="let charity of charity_account_list">{{charity?.name}}</ion-option>
+      <ion-select [disabled]="disabled" [(ngModel)]="charityName" interface="popover">
+        <ion-option *ngFor="let charity of charity_account_list" (ionSelect)="onSelectChange(charity.id)">{{charity?.name}}</ion-option>
       </ion-select>
     </ion-item>
 

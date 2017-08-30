@@ -20,13 +20,13 @@ export class AdminPayment {
 
   user: UserIn;
   hawkers = [] as UserIn[];
-  hawker: UserIn;
+  ui_hawker: UserIn;
   amount: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: Auth, private db: Database, private loadingCtrl: LoadingController) {
     this.user = this.navParams.get("user");
     if (this.user.accountType == "Hawker") {
-      this.hawker = this.navParams.get("user");
+      this.ui_hawker = this.navParams.get("user");
       console.log(this.user);
     } else {
       this.getHawkers();
@@ -47,8 +47,8 @@ export class AdminPayment {
       let payment: Payment = {
         from_id: this.auth.current_user.id,
         from_name: this.auth.current_user.name,
-        to_id: this.hawker.id,
-        to_name: this.hawker.name,
+        to_id: this.ui_hawker.id,
+        to_name: this.ui_hawker.name,
         amount: this.amount,
         type: this.auth.current_user.accountType,
         confirmed: false,
@@ -68,6 +68,7 @@ export class AdminPayment {
   }
 
   onSelectChange(event) {
-    this.hawker = event;
+    this.ui_hawker = event;
+    console.log(this.ui_hawker)
   }
 }

@@ -85,8 +85,8 @@
           <ion-item>
             <ion-icon name="pizza" item-start></ion-icon>
             <b [ngClass]="green">{{countRedemptions(monthlyItems)}} Meals Redeemed</b>
-            <b item-end *ngIf="!admin">-{{countRedemptions(monthlyItems) * 2.5}}</b>
-            <b item-end *ngIf="admin">N.A.</b>
+            <b item-end *ngIf="user.accounType != 'Admin'">-{{countRedemptions(monthlyItems) * 2.5}}</b>
+            <b item-end *ngIf="user.accounType == 'Admin'">N.A.</b>
           </ion-item>
         </ion-list>
       </ion-card-content>

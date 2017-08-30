@@ -22,7 +22,7 @@ export class CharityActivate {
   ui_barcode_number: number;
   barcode_number: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, private db: Database, private auth: Auth, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: Database, private auth: Auth, private loadingCtrl: LoadingController, private barcodeScanner: BarcodeScanner) {
 
    
   }

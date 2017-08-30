@@ -50,8 +50,9 @@
       <h1 *ngIf="dailyView">{{getFormattedDateHour(group[0])}}</h1>
       <ion-card *ngFor="let transaction of group">
         <ion-card-content>
-          <p>Name: {{transaction?.hawkerName}}</p>
+          <p>Name: {{transaction?.ownerName}} ({{transaction?.ownerLocation}})</p>
           <p>Charity: {{transaction?.charityName}}</p>
+          <p>Store: {{transaction?.hawkerName}}</p>
           <p *ngIf="yearlyView">Date: {{getFormattedDateDay(transaction)}}</p>
           <p *ngIf="monthlyView">Date: {{getFormattedDateHour(transaction)}}</p>
           <p *ngIf="dailyView">Time: {{getFormattedDateMinutes(transaction)}}</p>

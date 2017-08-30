@@ -62,13 +62,15 @@ export class AdminBarcode {
     loading.dismiss();
   }
 
-  onSelectChange(event) {
-    for (let charity of this.charity_account_list) {
+  onSelectChange(charity_id) {
+    this.ui_card_batch.charityID = charity_id;
+    console.log(charity_id)
+    /*for (let charity of this.charity_account_list) {
       if (charity.name == event) {
         this.ui_card_batch.charityID = charity.id;
         break;
       }
-    }
+    }*/
   }
 
   loading() {

@@ -20,7 +20,7 @@ export class AdminValidate {
   ui_verfication_status : string;
   ui_test : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, private db: Database) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: Database, private barcodeScanner: BarcodeScanner) {
     this.scan();
   }
 
@@ -32,5 +32,6 @@ export class AdminValidate {
       this.navCtrl.setRoot("ViewCard", {details: card});
     }
   }
+
 
 }

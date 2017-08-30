@@ -100,7 +100,7 @@ export class ViewBalances {
   calculateBalances(items: any[]) {
     let inflow = 0;
     let outflow = 0;
-    if (this.admin) {
+    if (this.admin && this.user.accountType == "Admin") {
       for (let item of items) {
         if (this.isPayment(item) && item.confirmed) {
           let amount = this.getPaymentAmount(item);

@@ -23,10 +23,10 @@
   <div (click)="scan()">
     <img src="./assets/img/barcode.png" width="100px" height="100px">
     <br>
-    <b>Scan</b>
+    <b>Click To Scan</b>
   </div>
   <ion-list>
-    <b>Barcode:</b>
+    <b>Enter Barcode:</b>
     <ion-item>
       <ion-input [(ngModel)]="ui_barcode_number" type="number" placeholder="Barcode"></ion-input>
     </ion-item>
@@ -36,4 +36,14 @@
     <ion-icon name="search"></ion-icon>
     Enter
   </button>
+  <br>
+  <ion-chip *ngIf="ui_error_message != ''" style="background-color: #ff9389; font-size: 24px">
+    <ion-icon name="alert" color="danger"></ion-icon>
+    <ion-label>{{ui_error_message}}</ion-label>
+  </ion-chip>
+  <br>
+  <ion-chip *ngIf="ui_confirm_message != ''" style="background-color: #9cff93; font-size: 24px">
+    <ion-icon name="checkmark-circle-outline" color="secondary"></ion-icon>
+    <ion-label>Transaction Successful!</ion-label>
+  </ion-chip>
 </ion-content>

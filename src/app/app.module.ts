@@ -3,10 +3,10 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { IonicStorageModule } from '@ionic/storage';
 import { Toast } from '@ionic-native/toast';
 import { Keyboard } from '@ionic-native/keyboard';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
@@ -35,7 +35,6 @@ import { ArraysProvider } from '../providers/arrays';
   providers: [
     StatusBar,
     SplashScreen,
-    BarcodeScanner,
     Toast,
     Keyboard,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -43,7 +42,8 @@ import { ArraysProvider } from '../providers/arrays';
     Auth,
     SideMenu,
     Database,
-    ArraysProvider
+    ArraysProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

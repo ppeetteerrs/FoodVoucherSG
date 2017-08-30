@@ -1,25 +1,25 @@
 page-hawker-home {
-    ion-content {
-        img {
-            display: block;
-            margin: auto;
-            margin-top: 100px;
-        }
-        div {
-            text-align: center;
-            b {
-                font-weight: 900;
-                font-size: 20px;
-            }
-        }
-
-        ion-list {
-            margin-top: 70px !important;
-            ion-input {
-                input {
-                    text-align: center;
-                }
-            }
-        }
+  ion-content {
+    img {
+      display: block;
+      margin: auto;
+      margin-top: 100px;
     }
+    div {
+      text-align: center;
+      b {
+        font-weight: 900;
+        font-size: 20px;
+      }
+    }
+    ion-list {
+      margin-top: 70px !important;
+      ion-input {
+        input {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
+

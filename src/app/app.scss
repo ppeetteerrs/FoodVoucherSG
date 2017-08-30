@@ -13,6 +13,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 @import "../pages/login/login";
+@import "../pages/hawker/hawker-home/hawker-home";
 ion-menu {
   .menu-inner {
     width: 240px;
@@ -93,5 +94,13 @@ ion-nav {
 
   .toolbar-title-md {
     font-weight: 900;
+  }
+}
+
+
+.error-alert {
+  .alert-head {
+    color: red !important;
+    text-decoration: bold;
   }
 }
